@@ -42,7 +42,8 @@ J = computeCost(X, y, theta)
 iterations = 400
 alpha = 0.01
 
-# Выполнение градиентного спуска
+# Выполнение градиентного спуска# сохранение значений стоимостной функции
+                                                   # на каждой итерации
 theta, J_history = gradientDescent(X, y, theta, alpha, iterations)
 print('Найденные параметры модели: ')
 print(theta)
@@ -50,7 +51,7 @@ print(theta)
 # Визуализация процесса сходимости
 plt.figure()
 plt.plot(np.arange(len(J_history)) + 1, J_history, '-b', linewidth = 2)
-plt.xlabel('Число итераций');
+plt.xlabel('Число итераций')
 plt.ylabel('Значение стоимостной функции')
 plt.grid()
 plt.show()
@@ -66,7 +67,8 @@ print('Часть 4. Нормальные уравнения')
 # Загрузка данных и формирование матрицы объекты-признаки X и вектора меток y
 data = np.loadtxt('data2.txt', delimiter = ',')
 m = data.shape[0]
-X = np.array(data[:, 0:2]); X = np.concatenate((np.ones((m, 1)), X), axis = 1)
+X = np.array(data[:, 0:2])
+X = np.concatenate((np.ones((m, 1)), X), axis = 1)
 y = np.array(data[:, 2:3])
 
 # Вычисление параметров модели с использование нормальных уравнений
